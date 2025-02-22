@@ -8,7 +8,7 @@
 	--primary: #f383da;
 	--aqua: #a5e8f6;
 	--accent: #8ecaf1;
-	--dark-blue: hsl(170, 95%, 49%);
+	--dark-blue: hsl(180, 95%, 49%);
 	--navy-blue: #08267d;
 	--beige: #f4bf90;
 	--skin-color: #f9ad81;
@@ -108,7 +108,6 @@
 	position: absolute;
 	-webkit-filter: blur(var(--blur-mid));
 	filter: blur(var(--blur-mid));
-	z-index: -1;
 }
 
 a:hover,
@@ -133,6 +132,7 @@ header {
 	padding: var(--padding-medium) var(--padding-massive);
 	align-items: center;
 	color: var(--dark-blue);
+	isolation: isolate;
 }
 
 header > h1 {
@@ -148,7 +148,6 @@ header > h1 {
 	width: 100%;
 	position: absolute;
 	height: 20%;
-	z-index: -1;
 }
 
 header a {
@@ -156,6 +155,10 @@ header a {
 	color: white;
 	text-decoration: underline 4px;
 	transition: all 0.2s;
+}
+
+header h1 {
+	font-size: var(--large);
 }
 
 header a,
@@ -273,25 +276,30 @@ img {
 }
 
 button {
-	background-color: white;
-	padding: var(--padding-regular);
+	background: white;
 	font-size: var(--mid);
 	cursor: pointer;
 	position: relative;
 	border-radius: var(--rounded);
 	border: none;
+	padding: var(--padding-regular);
+	text-shadow: -3px 3px var(--light-pink);
 	color: var(--primary);
+	transition: all 0.2s ease;
+}
+
+button:hover {
+	transform: translateY(-5px);
 }
 
 button::after {
 	content: "";
 	position: absolute;
-	height: 100%;
-	width: 100%;
-	padding: var(--padding-large);
+	height: calc(100% + 8px);
+	width: calc(100% + 8px);
 	border-radius: var(--rounded);
 	box-shadow: -10px 10px rgba(0, 0, 0, 0.1);
-	translate: -10.25rem -1rem;
+	translate: -10.5rem -1.3rem;
 	padding: var(--padding-size-reserve);
 	background-image: conic-gradient(
 		from var(--angle),
@@ -309,8 +317,6 @@ button::after {
 
 .background {
 	background-image: linear-gradient(var(--accent), var(--primary));
-	z-index: -1;
-	position: absolute;
 }
 
 section {
