@@ -309,7 +309,8 @@ button::after {
 
 .background {
 	background-image: linear-gradient(var(--accent), var(--primary));
-	z-index: -2;
+	z-index: -1;
+	position: absolute;
 }
 
 section {
